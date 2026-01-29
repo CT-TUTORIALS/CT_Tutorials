@@ -1,126 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C&T Tutorials</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C&T Tutorials</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            line-height: 1.6;
-            color: #333;
-        }
+<style>
+/* ===== General ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+}
 
-        header {
-            background: #003366;
-            padding: 15px;
-        }
+/* ===== Header ===== */
+header {
+    background: #003366;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
+header img {
+    height: 60px;
+}
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-        }
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 
-        nav a:hover {
-            text-decoration: underline;
-        }
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-        section {
-            padding: 40px 20px;
-            max-width: 900px;
-            margin: auto;
-        }
+nav a:hover {
+    text-decoration: underline;
+}
 
-        h2 {
-            color: #003366;
-        }
+/* ===== Banner ===== */
+.banner {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 
-        h3 {
-            color: #00509e;
-            margin-top: 25px;
-        }
+/* ===== Sections ===== */
+section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+}
 
-        h4 {
-            margin-top: 15px;
-        }
+h2 {
+    color: #003366;
+}
 
-        ul {
-            list-style-type: square;
-            margin-left: 20px;
-        }
+h3 {
+    color: #00509e;
+    margin-top: 25px;
+}
 
-        .price {
-            font-weight: bold;
-        }
+h4 {
+    margin-top: 15px;
+}
 
-        form {
-            max-width: 500px;
-        }
+ul {
+    list-style-type: square;
+    margin-left: 20px;
+}
 
-        input, textarea, select {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-        }
+.price {
+    font-weight: bold;
+}
 
-        button {
-            background-color: #003366;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+/* ===== Contact & Registration Forms ===== */
+form {
+    max-width: 500px;
+}
 
-        button:hover {
-            background-color: #00509e;
-        }
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
 
-        footer {
-            background: #003366;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 40px;
-        }
+button {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-        a.resource-link {
-            color: #00509e;
-            font-weight: bold;
-            text-decoration: none;
-        }
+button:hover {
+    background-color: #00509e;
+}
 
-        a.resource-link:hover {
-            text-decoration: underline;
-        }
-    </style>
+/* ===== Footer ===== */
+footer {
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+/* ===== Resources Links ===== */
+a.resource-link {
+    color: #00509e;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a.resource-link:hover {
+    text-decoration: underline;
+}
+
+/* ===== Floating Registration Button ===== */
+.floating-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    text-decoration: none;
+}
+
+.floating-btn:hover {
+    background-color: #00509e;
+}
+</style>
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header>
+    <img src="logo.png" alt="C&T Tutorials Logo">
     <nav>
         <a href="#services">Services</a>
         <a href="#resources">Resources</a>
         <a href="#contact">Contact</a>
+        <a href="#register">Register</a>
     </nav>
 </header>
 
-<!-- ========== SERVICES ========== -->
+<!-- ===== BANNER ===== -->
+<img src="banner.jpg" alt="C&T Tutorials Banner" class="banner">
+
+<!-- ===== SERVICES ===== -->
 <section id="services">
     <h2>Our Services</h2>
 
     <h3>Tutorial Services</h3>
-
     <h4>One-on-One Sessions</h4>
     <ul>
         <li>Introduction to Academic Writing (4 sessions) – <span class="price">N$ 100.00</span></li>
@@ -148,60 +200,67 @@
     </ul>
 </section>
 
-<!-- ========== RESOURCES ========== -->
+<!-- ===== RESOURCES ===== -->
 <section id="resources">
     <h2>Resources</h2>
-    <p>Download helpful academic materials:</p>
-
     <ul>
-        <li>
-            <a class="resource-link" href="documents/Business Policies.pdf" target="_blank">
-                Business Policies (PDF)
-            </a>
-        </li>
-        <li>
-            <a class="resource-link" href="documents/Student form for offline application.pdf" target="_blank">
-                Student Form for Offline Application (PDF)
-            </a>
-        </li>
-        <li>
-            <a class="resource-link" href="documents/Student Notes.pdf" target="_blank">
-                Student Notes (PDF)
-            </a>
-        </li>
+        <li><a class="resource-link" href="documents/Business Policies.pdf" target="_blank">Business Policies (PDF)</a></li>
+        <li><a class="resource-link" href="documents/Student form for offline application.pdf" target="_blank">Student Form for Offline Application (PDF)</a></li>
+        <li><a class="resource-link" href="documents/Student Notes.pdf" target="_blank">Student Notes (PDF)</a></li>
     </ul>
 </section>
 
-<!-- ========== CONTACT ========== -->
+<!-- ===== CONTACT ===== -->
 <section id="contact">
     <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:ct0tutorials@gmail.com">ct0tutorials@gmail.com</a></p>
+    <p>Phone: +264 815 621 879 / +264 818 479 958</p>
+</section>
 
+<!-- ===== REGISTRATION FORM ===== -->
+<section id="register">
+    <h2>Register for Services</h2>
     <form action="https://formspree.io/f/mlgbjkwq" method="POST">
         <label>
             Full Name:
             <input type="text" name="name" required>
-        </label>
-        <br><br>
+        </label><br><br>
 
         <label>
             Email Address:
             <input type="email" name="email" required>
-        </label>
-        <br><br>
+        </label><br><br>
 
         <label>
-            Message:
-            <textarea name="message" rows="5" required></textarea>
-        </label>
-        <br><br>
+            Select Service:
+            <select name="service" required>
+                <option value="">--Select--</option>
+                <option>Introduction to Academic Writing</option>
+                <option>Topic-specific Sessions</option>
+                <option>One-on-One Hourly Rate</option>
+                <option>Group Sessions</option>
+                <option>Draft Editing</option>
+                <option>Document Proofreading</option>
+                <option>Referencing Assistance</option>
+                <option>Public Speaking Support</option>
+            </select>
+        </label><br><br>
 
-        <!-- Anti-spam -->
+        <label>
+            <input type="checkbox" name="disclosure" required>
+            I agree to the <a href="documents/Student Notes.pdf" target="_blank">Disclosure Agreement</a>
+        </label><br><br>
+
         <input type="text" name="_gotcha" style="display:none">
 
-        <button type="submit">Send Message</button>
+        <button type="submit">Submit Registration</button>
     </form>
 </section>
 
+<!-- ===== FLOATING REGISTRATION BUTTON ===== -->
+<a href="#register" class="floating-btn">Register Now</a>
+
+<!-- ===== FOOTER ===== -->
 <footer>
     <p>&copy; 2026 C&T Tutorials. All rights reserved.</p>
 </footer>
