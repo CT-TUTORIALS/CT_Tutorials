@@ -12,29 +12,42 @@ body {
     margin: 0;
     line-height: 1.6;
     color: #333;
+    scroll-behavior: smooth; /* smooth scrolling */
 }
 
-/* ===== Header ===== */
+/* ===== Header + Banner ===== */
 header {
-    background: #003366;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    position: relative;
+    height: 250px;
+    width: 100%;
 }
 
-header img {
+header img.banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    z-index: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+header img.logo {
+    position: relative;
+    z-index: 1;
     height: 60px;
+    margin: 10px 20px;
 }
 
 nav {
+    position: relative;
+    z-index: 1;
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 nav a {
@@ -45,15 +58,6 @@ nav a {
 
 nav a:hover {
     text-decoration: underline;
-}
-
-/* ===== Banner ===== */
-.banner {
-    width: 100%;
-    max-height: 250px;
-    object-fit: cover;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
 /* ===== Sections ===== */
@@ -85,37 +89,9 @@ ul {
     font-weight: bold;
 }
 
-/* ===== Contact & Registration Forms ===== */
-form {
-    max-width: 500px;
-}
-
-input, textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-}
-
-button {
-    background-color: #003366;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-button:hover {
-    background-color: #00509e;
-}
-
-/* ===== Footer ===== */
-footer {
-    background: #003366;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
+/* ===== Contact ===== */
+section#contact p {
+    font-size: 1.1em;
 }
 
 /* ===== Resources Links ===== */
@@ -150,13 +126,55 @@ a.resource-link:hover {
 .floating-btn:hover {
     background-color: #00509e;
 }
+
+/* ===== Registration Form ===== */
+form {
+    max-width: 500px;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+button.submit-btn {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+button.submit-btn:hover {
+    background-color: #00509e;
+}
+
+/* ===== Footer ===== */
+footer {
+    background: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+}
 </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER + BANNER ===== -->
 <header>
-    <img src="images/logo.jpeg" alt="C&T Tutorials Logo">
+    <img src="images/banner.jpeg" alt="C&T Tutorials Banner" class="banner">
+    <img src="images/logo.jpeg" alt="C&T Tutorials Logo" class="logo">
     <nav>
         <a href="#services">Services</a>
         <a href="#resources">Resources</a>
@@ -164,9 +182,6 @@ a.resource-link:hover {
         <a href="#register">Register</a>
     </nav>
 </header>
-
-<!-- ===== BANNER ===== -->
-<img src="images/banner.jpeg" alt="C&T Tutorials Banner" class="banner">
 
 <!-- ===== SERVICES ===== -->
 <section id="services">
@@ -217,19 +232,19 @@ a.resource-link:hover {
     <p>Phone: +264 815 621 879 / +264 818 479 958</p>
 </section>
 
-<!-- ===== REGISTRATION FORM ===== -->
+<!-- ===== REGISTRATION FORM (SCROLL TARGET) ===== -->
 <section id="register">
     <h2>Register for Services</h2>
     <form action="https://formspree.io/f/mlgbjkwq" method="POST">
         <label>
             Full Name:
             <input type="text" name="name" required>
-        </label><br><br>
+        </label>
 
         <label>
             Email Address:
             <input type="email" name="email" required>
-        </label><br><br>
+        </label>
 
         <label>
             Select Service:
@@ -244,16 +259,16 @@ a.resource-link:hover {
                 <option>Referencing Assistance</option>
                 <option>Public Speaking Support</option>
             </select>
-        </label><br><br>
+        </label>
 
         <label>
             <input type="checkbox" name="disclosure" required>
             I agree to the <a href="documents/Student Notes.pdf" target="_blank">Disclosure Agreement</a>
-        </label><br><br>
+        </label>
 
         <input type="text" name="_gotcha" style="display:none">
 
-        <button type="submit">Submit Registration</button>
+        <button type="submit" class="submit-btn">Submit Registration</button>
     </form>
 </section>
 
