@@ -12,44 +12,49 @@ body {
     margin: 0;
     line-height: 1.6;
     color: #333;
-    scroll-behavior: smooth; /* smooth scrolling for anchor links */
 }
 
-/* ===== Header ===== */
+/* ===== Header as Banner ===== */
 header {
-    position: sticky;
+    position: relative;
+    width: 100%;
+    height: 300px; /* banner height */
+    background: url('images/banner.jpeg') no-repeat center center;
+    background-size: cover;
+}
+
+header .overlay {
+    position: absolute;
     top: 0;
-    background-color: rgba(0, 51, 102, 0.85); /* semi-transparent so banner shows behind */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.35); /* dark overlay so text/nav is visible */
+}
+
+header .content {
+    position: relative;
+    z-index: 2;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    z-index: 10;
+    padding: 15px 30px;
 }
 
 header img.logo {
     height: 60px;
 }
 
-nav a {
-    color: #fff;
+header nav a {
+    color: white;
     text-decoration: none;
-    margin-left: 15px;
+    margin-left: 20px;
     font-weight: bold;
+    font-size: 16px;
 }
 
-nav a:hover {
+header nav a:hover {
     text-decoration: underline;
-}
-
-/* ===== Banner ===== */
-.banner {
-    width: 100%;
-    max-height: 300px;
-    object-fit: cover;
-    margin-top: -60px; /* pull banner behind header */
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
 }
 
 /* ===== Sections ===== */
@@ -97,39 +102,6 @@ section#contact p {
     font-size: 1.1em;
 }
 
-/* ===== Registration Form ===== */
-form {
-    max-width: 500px;
-    background-color: #f7f7f7;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    margin-bottom: 40px;
-}
-
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button.submit-btn {
-    background-color: #003366;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-button.submit-btn:hover {
-    background-color: #00509e;
-}
-
 /* ===== Floating Registration Button ===== */
 .floating-btn {
     position: fixed;
@@ -164,19 +136,18 @@ footer {
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
+<!-- ===== HEADER AS BANNER ===== -->
 <header>
-    <img src="images/logo.jpeg" alt="C&T Tutorials Logo" class="logo">
-    <nav>
-        <a href="#services">Services</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact">Contact</a>
-        <a href="#register">Register</a>
-    </nav>
+    <div class="overlay"></div>
+    <div class="content">
+        <img src="images/logo.jpeg" alt="C&T Tutorials Logo" class="logo">
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#resources">Resources</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
 </header>
-
-<!-- ===== BANNER ===== -->
-<img src="images/banner.jpeg" alt="C&T Tutorials Banner" class="banner">
 
 <!-- ===== SERVICES ===== -->
 <section id="services">
@@ -227,48 +198,8 @@ footer {
     <p>Phone: +264 815 621 879 / +264 818 479 958</p>
 </section>
 
-<!-- ===== REGISTRATION FORM ===== -->
-<section id="register">
-    <h2>Register for Services</h2>
-    <form action="https://formspree.io/f/mlgbjkwq" method="POST">
-        <label>
-            Full Name:
-            <input type="text" name="name" required>
-        </label>
-
-        <label>
-            Email Address:
-            <input type="email" name="email" required>
-        </label>
-
-        <label>
-            Select Service:
-            <select name="service" required>
-                <option value="">--Select--</option>
-                <option>Introduction to Academic Writing</option>
-                <option>Topic-specific Sessions</option>
-                <option>One-on-One Hourly Rate</option>
-                <option>Group Sessions</option>
-                <option>Draft Editing</option>
-                <option>Document Proofreading</option>
-                <option>Referencing Assistance</option>
-                <option>Public Speaking Support</option>
-            </select>
-        </label>
-
-        <label>
-            <input type="checkbox" name="disclosure" required>
-            I agree to the <a href="documents/Student Notes.pdf" target="_blank">Disclosure Agreement</a>
-        </label>
-
-        <input type="text" name="_gotcha" style="display:none">
-
-        <button type="submit" class="submit-btn">Submit Registration</button>
-    </form>
-</section>
-
 <!-- ===== FLOATING REGISTRATION BUTTON ===== -->
-<a href="#register" class="floating-btn">Register Now</a>
+<a href="https://formspree.io/f/mlgbjkwq" class="floating-btn" target="_blank">Register Now</a>
 
 <!-- ===== FOOTER ===== -->
 <footer>
